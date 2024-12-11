@@ -1,10 +1,33 @@
-import './input.css'
-const Input = (props) =>{
-    return(
-        <div className="input-container">
-            <label>{props.label}</label>
-            <input placeholder={`${props.placeholder}...`} />
-        </div>
-    )
+import './input.css';
+
+const Input = (props) => {
+
+    const changing = (e) => {
+        props.onChanged(e.target.value)
+    }
+
+    if (props.type == 'text' && props.placeholder) {
+        return (
+            <div className="input-container">
+                <label>{props.label}</label>
+                <input required={props.required} placeholder={`${props.placeholder}...`} onChange={changing} value={props.value} />
+            </div>
+        )
+    }
+    if (props.type == 'select' && props.itens) {
+        return (
+            <div className='input-container'>
+                <label>{props.label}</label>
+                <select required={props.required} onChange={changing} value={props.value}>
+                    {
+                        props.itens.map((item) => <option key={item}>{item}</option>)
+                    }
+                </select>
+            </div>
+        )
+    }
+
+    return null
+
 }
-export default Input
+export default Input;

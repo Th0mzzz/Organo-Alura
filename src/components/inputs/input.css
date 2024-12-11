@@ -2,6 +2,7 @@
     margin: 24px 0;
     & label{
         display: block;
+        margin-bottom: 8px;
     }
     & input , & select , & textarea{
         background: #ffffff;
@@ -10,5 +11,6 @@
         outline: none;
         border: none;
         padding: 1rem;
+        border-radius: 8px;
     }
 }
