@@ -19,6 +19,7 @@ const Input = (props) => {
             <div className='input-container'>
                 <label>{props.label}</label>
                 <select required={props.required} onChange={changing} value={props.value}>
+                    <option value="" disabled> Selecione...</option>
                     {
                         props.itens.map((item) => <option key={item}>{item}</option>)
                     }

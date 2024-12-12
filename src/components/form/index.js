@@ -3,7 +3,7 @@ import Input from '../inputs/';
 import Button from '../buttons';
 import { useState } from 'react';
 
-export const FormCards = () => {
+export const FormCards = (props) => {
     const equipes = ["Programação", "Front-end"]
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
@@ -12,7 +12,7 @@ export const FormCards = () => {
 
     const submitted = (e) => {
         e.preventDefault();
-        console.log('form submetido =>', { nome: nome, cargo: cargo, img: img, equipe:equipe })
+        props.addCard({ nome, cargo, img, equipe })
     }
     return (
         <section className='formcard-container'>
@@ -42,6 +42,7 @@ export const FormCards = () => {
                     value={img}
                     onChanged={value => setImg(value)}
                 />
+
                 <Input
                     type="select"
                     label="Selecione a equipe"
