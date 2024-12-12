@@ -4,7 +4,6 @@ import Button from '../buttons';
 import { useState } from 'react';
 
 export const FormCards = (props) => {
-    const equipes = ["Programação", "Front-end"]
     const [nome, setNome] = useState('')
     const [cargo, setCargo] = useState('')
     const [img, setImg] = useState('')
@@ -46,12 +45,12 @@ export const FormCards = (props) => {
                 <Input
                     type="select"
                     label="Selecione a equipe"
-                    itens={equipes}
+                    itens={props.cards}
                     required={true}
                     value={equipe}
                     onChanged={value => setEquipe(value)}
                 />
-                <Button>
+                <Button type="submit">
                     Criar card
                 </Button>
             </form>
