@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Banner from './components/banner/';
 import { FormCards } from './components/form';
 import { Cards } from './components/cards';
+import { Footer } from './components/footer';
 
 function App() {
   const [cards, setCard] = useState([])
@@ -17,11 +18,15 @@ function App() {
     <div className="App">
       <Banner />
       <FormCards cards={equipes} addCard={card => addingCard(card)} />
-
       {
-      equipes.map(equipe => <Cards key={equipe.nome} infos={equipe} />)
+        equipes.map(equipe =>
+          <Cards
+            key={equipe.nome}
+            infos={equipe}
+            itens={cards.filter(card => card.equipe === equipe.nome)}
+          />)
       }
-
+      <Footer />
     </div>
   );
 }

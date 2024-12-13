@@ -12,6 +12,10 @@ export const FormCards = (props) => {
     const submitted = (e) => {
         e.preventDefault();
         props.addCard({ nome, cargo, img, equipe })
+        setNome("")
+        setCargo("")
+        setImg("")
+        setEquipe("")
     }
     return (
         <section className='formcard-container'>
