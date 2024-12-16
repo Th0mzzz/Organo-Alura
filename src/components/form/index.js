@@ -2,6 +2,7 @@ import './form.css'
 import Input from '../inputs/';
 import Button from '../buttons';
 import { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid'
 
 export const FormCards = (props) => {
     const [nome, setNome] = useState('')
@@ -11,7 +12,7 @@ export const FormCards = (props) => {
 
     const submitted = (e) => {
         e.preventDefault();
-        props.addCard({ nome, cargo, img, equipe })
+        props.addCard({ id: uuidv4(), nome, cargo, img, equipe })
         setNome("")
         setCargo("")
         setImg("")

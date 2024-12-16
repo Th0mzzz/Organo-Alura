@@ -21,7 +21,7 @@ const Input = (props) => {
                 <select required={props.required} onChange={changing} value={props.value}>
                     <option value="" disabled> Selecione...</option>
                     {
-                        props.itens.map((item) => <option key={item.nome}>{item.nome}</option>)
+                        props.itens.map((item) => <option key={item.id}>{item.nome}</option>)
                     }
                 </select>
             </div>

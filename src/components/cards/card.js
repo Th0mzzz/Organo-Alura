@@ -1,8 +1,9 @@
 import './cards.css';
-
-export const Card = ({ infoCard }) => {
+import { AiFillDelete } from "react-icons/ai";
+export const Card = ({ infoCard, onDelete }) => {
     return (
         <div className='card'>
+            <AiFillDelete size={20} className='deleteBtn' title='deletar card' onClick={onDelete(infoCard.id)} />
             <header style={{ background: infoCard.cor }}>
                 <img src={infoCard.img} alt='imagem do card' className='img-card' />
             </header>
