@@ -25,6 +25,7 @@ export const Cards = (props) => {
                             key={index}
                             infoCard={{ ...card, cor: props.infos.cor2 }}
                             onDelete={props.onDelete}
+                            favCard={props.favCard}
                         />
                     })
                 }

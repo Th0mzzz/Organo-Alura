@@ -5,16 +5,7 @@ const Input = (props) => {
     const changing = (e) => {
         props.onChanged(e.target.value)
     }
-
-    if (props.type == 'text' && props.placeholder) {
-        return (
-            <div className="input-container">
-                <label>{props.label}</label>
-                <input required={props.required} placeholder={`${props.placeholder}...`} onChange={changing} value={props.value} />
-            </div>
-        )
-    }
-    if (props.type == 'select' && props.itens) {
+    if (props.type === 'select' && props.itens) {
         return (
             <div className='input-container'>
                 <label>{props.label}</label>
@@ -28,7 +19,16 @@ const Input = (props) => {
         )
     }
 
-    return null
+
+    return (
+        <div className={`input-container input-${props.type}`}>
+            <label>{props.label}</label>
+            <input type={props.type} required={props.required} placeholder={`${props.placeholder}...`} onChange={changing} value={props.value} />
+        </div>
+    )
+
+
+
 
 }
 export default Input;

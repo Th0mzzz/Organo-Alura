@@ -93,4 +93,30 @@
             text-shadow: 1px 0 8px #ff5757;
         }
     }
+
+    .fav-btn {
+        margin: 1rem .4rem;
+        font-size: 22px;
+        color: black;
+        transition: all .5s;
+
+        &.favorited {
+            animation: Curtir .5s ;
+            color: #f53a3a;
+        }
+    }
+}
+
+@keyframes Curtir {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.5);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
