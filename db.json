@@ -1,0 +1,40 @@
+{
+    "cards": [
+        {
+            "id": 1,
+            "nome": "Thomaz",
+            "cargo": "Desenvolvedor Front-end",
+            "img": "https://github.com/th0mzzz.png",
+            "equipe": "Front-end",
+            "fav": false
+        },
+        {
+            "id": 2,
+            "nome": "Sophia",
+            "cargo": "Engenheira de Software",
+            "img": "https://github.com/sophiaAg.png",
+            "equipe": "Programação",
+            "fav": false
+        }
+    ],
+    "equipes": [
+        {
+            "id": 1,
+            "nome": "Programação",
+            "cor1": "#D9F7E9",
+            "cor2": "#57C278"
+        },
+        {
+            "id": 2,
+            "nome": "Front-end",
+            "cor1": "#E8F8FF",
+            "cor2": "#82CFFA"
+        },
+        {
+            "id": 3,
+            "nome": "Design",
+            "cor1": "#FAE9F5",
+            "cor2": "#DB6EBF"
+        }
+    ]
+}

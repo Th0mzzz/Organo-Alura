@@ -1,23 +1,31 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Banner from './components/banner/';
 import { FormCards } from './components/form';
 import { Cards } from './components/cards';
 import { Footer } from './components/footer';
-import { v4 as uuidv4 } from 'uuid'
 // icons
 import { MdOutlineAddToPhotos } from "react-icons/md";
+import Button from './components/buttons';
 
 function App() {
-  const cardsInicial = [
-    { id: uuidv4(), nome: "Thomaz", cargo: "Desenvolvedor Front-end", img: "https://github.com/th0mzzz.png", equipe: "Front-end", fav: false },
-    { id: uuidv4(), nome: "Sophia", cargo: "Engenheira de Software", img: "https://github.com/sophiaAg.png", equipe: "Programação", fav: false },
-  ]
-  const [cards, setCard] = useState(cardsInicial)
-  const [equipes, setEquipes] = useState([
-    { id: uuidv4(), nome: "Programação", cor1: "#D9F7E9", cor2: "#57C278" },
-    { id: uuidv4(), nome: "Front-end", cor1: "#E8F8FF", cor2: "#82CFFA" },
-    { id: uuidv4(), nome: "Design", cor1: "#FAE9F5", cor2: "#DB6EBF" }
-  ])
+  const [cards, setCard] = useState([])
+  const [equipes, setEquipes] = useState([])
+
+  useEffect(() => {
+    fetch("http://localhost:8080/equipes")
+      .then(r => r.json())
+      .then(data => setEquipes(data))
+      .catch(error => console.error(error))
+  }, [])
+
+  useEffect(() => {
+    fetch("http://localhost:8080/cards")
+      .then(r => r.json())
+      .then(data => setCard(data))
+      .catch(error => console.error(error))
+  }, [])
+
+
   const addingCard = (card) => {
     setCard([...cards, card])
   }
@@ -60,12 +68,9 @@ function App() {
   return (
     <div className="App">
       <Banner />
-      <MdOutlineAddToPhotos 
-            onClick={()=>{
-                show === "show" ? setShow("") : setShow("show")
-            }}
-            title='Adicionar'
-            />
+      <Button onClick={() => { show === "show" ? setShow("") : setShow("show") }} style={{ margin: "1.5rem", fontSize: "25px", marginLeft:"auto" }}>
+        <MdOutlineAddToPhotos />
+      </Button>
       <FormCards show={show} cards={equipes} addCard={card => addingCard(card)} addEquipe={equipe => addingEquipe(equipe)} />
       {
         equipes.map(equipe =>

@@ -1,18 +1,22 @@
 .formcard-container {
-    display: none;
+    display: flex;  
     justify-content: center;
     flex-flow: row wrap;
     gap: 1rem;
     row-gap: 2.5rem;
     padding: 2rem 1rem;
     background: #ffffff;
-    transition: all .6s;
+    transition: all .3s;
+    visibility: hidden;
+    opacity: 0;
+    height: 0px;
 
     &.show {
-        display: flex;
-        animation: abrir .6s;
+        height: auto;
+        visibility: visible;
+        opacity: 1;
     }
-    
+
 
 
     & form {
@@ -24,28 +28,4 @@
         padding: 2rem 1rem;
     }
 
-}
-
-@keyframes abrir {
-    from {
-        transform: translate(-100%);
-    }
-
-    to {
-        transform: translate(0%);
-    }
-}
-@keyframes fechar {
-    0% {
-        transform: translate(0%);
-    }
-
-    50%{
-        display: none;
-        transform: translate(100%);
-    }
-    100%{
-        display: none;
-        transform: translate(100%);
-    }
 }
